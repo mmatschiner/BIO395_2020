@@ -222,6 +222,16 @@ We are now going to use the program [Tracer](http://tree.bio.ed.ac.uk/software/t
 
 * Next, find the estimated divergence time between African and Neotropical cichlid fishes. To do so, scroll to the bottom of the list on the left, select "mrcatime(Afro-American cichlids)". You'll see that this divergence event was estimated around 65 Ma, with a range of uncertainty between around 55 Ma and 75 Ma, as shown in the next screenshot.<p align="center"><img src="img/tracer4.png" alt="Tracer" width="700"></p>
 
+Even though we now already have the most important result of the analysis, an estimate of the divergence time between African and Neotropical cichlid fishes, we might still like to see the phylogeny resulting from the analysis. BEAST2 has written even a large number of phylogenies to the file named [`Near_et_al_red.trees`](https://raw.githubusercontent.com/mmatschiner/BIO395_2020/main/res/Near_et_al_red.trees), representing the so-called "posterior tree distribution"; a set of trees that are all plausible given the sequence data and the model chosen for the inference (including the fossil constraints). This set of trees can sometimes be used for downstream analyses; however, for interpretation, a single summary tree is usually more useful.
+
+* To generate a summary tree from the posterior tree distribution, open the program TreeAnnotator that is part of the BEAST2 package.
+
+XXX [`Near_et_al_red.tre`](https://raw.githubusercontent.com/mmatschiner/BIO395_2020/main/res/Near_et_al_red.tre)
+
+XXX <p align="center"><img src="img/treeannotator1.png" alt="TreeAnnotator" width="700"></p>
+
+XXX <p align="center"><img src="img/figtree2.png" alt="FigTree" width="700"></p>
+
 <br><hr>
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
