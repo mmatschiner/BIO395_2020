@@ -9,6 +9,7 @@ A tutorial on phylogenetic inference and divergence-time estimation with fossils
 * [Requirements](#requirements)
 * [Phylogenetic inference and divergence-time estimation with CladeAge](#cladeage)
 * [Postprocessing](#postprocessing)
+* [Visualization](#visualization)
 
 <a name="outline"></a>
 ## Outline
@@ -222,6 +223,9 @@ We are now going to use the program [Tracer](http://tree.bio.ed.ac.uk/software/t
 
 * Next, find the estimated divergence time between African and Neotropical cichlid fishes. To do so, scroll to the bottom of the list on the left, select "mrcatime(Afro-American cichlids)". You'll see that this divergence event was estimated around 65 Ma, with a range of uncertainty between around 55 Ma and 75 Ma, as shown in the next screenshot.<p align="center"><img src="img/tracer4.png" alt="Tracer" width="700"></p>
 
+<a name="visualization"></a>
+## Visualization
+
 Even though we now already have the most important result of the analysis, an estimate of the divergence time between African and Neotropical cichlid fishes, we might still like to see the phylogeny resulting from the analysis. BEAST2 has written even a large number of phylogenies to the file named [`Near_et_al_red.trees`](https://raw.githubusercontent.com/mmatschiner/BIO395_2020/main/res/Near_et_al_red.trees), representing the so-called "posterior tree distribution"; a set of trees that are all plausible given the sequence data and the model chosen for the inference (including the fossil constraints). This set of trees can sometimes be used for downstream analyses; however, for interpretation, a single summary tree is usually more useful.
 
 * To generate a summary tree from the posterior tree distribution, open the program TreeAnnotator that is part of the BEAST2 package.
@@ -244,7 +248,9 @@ TreeAnnotator should finish within seconds, and a file named `Near_et_al_red.tre
 
 * Click the triangle next to "Tip labels" and increase the font size.
 
-* Set a tick next to "Node Bars" and choose "height_95%_HPD" from the drop-down menu next to "Display" to set the length of the bars according to the Bayesian confidence interval for the age of the corresponding node. The FigTree window should then look as shown in the next screenshot.<p align="center"><img src="img/figtree2.png" alt="FigTree" width="700"></p>
+* Set a tick next to "Node Bars" and choose "height_95%_HPD" from the drop-down menu next to "Display" to set the length of the bars according to the Bayesian confidence interval for the age of the corresponding node. The FigTree window should then look as shown in the next screenshot.<p align="center"><img src="img/figtree2.png" alt="FigTree" width="700"></p>You should see that not only the divergence of African and Neotropical cichlid fishes (the divergence of *Cichla* and *Heros* from *Heterochromis* and *Oreochromis* at the bottom of the tree visualization), but also at least the next three more ancestral divergence events are all younger than 100 Ma, the separation time between the African and South American continents.
+
+E voilá, now we have analyzed the divergence times of cichlid fishes with a suitable dataset, we have visualized the results in a format that could be acceptable for publication, we have concluded that the divergence times of cichlids are clearly younger than the continental separation of Africa and South America, and that they therefore must have swum across the Atlantic to get from Africa to South America.
 
 <br><hr>
 
