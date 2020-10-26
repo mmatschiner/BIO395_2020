@@ -74,7 +74,7 @@ The 24 species that we will focus on are listed in the table below.
 
 </center>
 
-* A list of the 24 species IDs in plain text format is also in file [`Near_et_al_ids.txt`](data/Near_et_al_ids.txt). Download this file with this command:
+* A list of the 24 species IDs in plain text format is also in file [`Near_et_al_ids.txt`](https://raw.githubusercontent.com/mmatschiner/BIO395_2020/main/data/Near_et_al_ids.txt). Download this file by clicking on the link or by using this command:
 
 		wget https://raw.githubusercontent.com/mmatschiner/BIO395_2020/main/data/Near_et_al_ids.txt
 
@@ -90,7 +90,7 @@ The 24 species that we will focus on are listed in the table below.
 
 * Close and reopen BEAUti. You should then see that an additional tab has been added named "Clade Ages", as in the screenshot below.<p align="center"><img src="img/beauti2.png" alt="BEAUti" width="700"></p>
 
-* Now click on "Import Alignment" in the "File" menu, and select file [`Near_et_al_red.nex`](data/Near_et_al_red.nex). BEAUti should then recognize 30 different partitions, one for each codon position of each of the ten markers. The BEAUti window should then look as shown in the screenshot below.<p align="center"><img src="img/beauti3.png" alt="BEAUti" width="700"></p>
+* Now click on "Import Alignment" in the "File" menu, and select file `Near_et_al_red.nex`. BEAUti should then recognize 30 different partitions, one for each codon position of each of the ten markers. The BEAUti window should then look as shown in the screenshot below.<p align="center"><img src="img/beauti3.png" alt="BEAUti" width="700"></p>
 
 * Select all partitions, and click "Link Trees" as well as "Link Clock Models", as shown below.<p align="center"><img src="img/beauti4.png" alt="BEAUti" width="700"></p>
 
@@ -120,7 +120,7 @@ The 24 species that we will focus on are listed in the table below.
 
 * It is also possible to preview the shape of the prior densities as calculated by CladeAge based on the specified parameters. To do so, you may have to increase the window size so that you can click on the "Preview" button below the icon on the right. A plot outlining the prior densities should then appear as in the screenshot below.<p align="center"><img src="img/beauti17.png" alt="BEAUti" width="700"></p>From this plot, you can see that under the assumption that all specified model parameters are correct, there's a good probability that Heterochromini originated some time between 25 and 80 Ma. While this range is rather wide, it is based on only one fossil; we will obtain more precise estimates when we run the phylogenetic analysis with multiple fossil constraints.
 
-* Click the triangle to the left of "Heterochromini" again to close the section with details on this fossil constraint, and add further fossil constraints for the clades listed below (if you get tired of adding these constraints and rather use a prepared input file for BEAST2, just read through the next three steps and then download file [`Near_et_al_red.xml`](https://raw.githubusercontent.com/mmatschiner/BIO395_2020/main/data/Near_et_al_red.xml)):
+* Click the triangle to the left of "Heterochromini" again to close the section with details on this fossil constraint, and add further fossil constraints for the clades listed below (if you get tired of adding these constraints and rather use a prepared input file for BEAST2, just read through the next three steps and then download file [`Near_et_al_red.xml`](https://raw.githubusercontent.com/mmatschiner/BIO395_2020/main/data/Near_et_al_red.xml):
 	* **"Other African cichlid tribes"**<br>Ingroup: *Oreochromis niloticus* ("Oreochromis\_niloticus")<br>Oldest fossil species: *Mahengechromis* spp.<br>First occurrence age: 45.0-46.0 Ma
 	* **"African cichlids"**<br>Ingroup: *Heterochromis multidens* ("Heterochromis\_multidensA"), *Oreochromis niloticus* ("Oreochromis\_niloticus")<br>Oldest fossil species: *Mahengechromis* spp.<br>First occurrence age: 45.0-46.0 Ma
 	* **"Retroculini and Cichlini"**<br>Ingroup: *Cichla temensis* ("Cichla\_temensisA")<br>Oldest fossil species: *Palaeocichla longirostrum*<br>First occurrence age: 5.332-23.03 Ma
@@ -156,7 +156,7 @@ The 24 species that we will focus on are listed in the table below.
 
 * Save the analysis settings to a new file named `Near_et_al_red.xml` by clicking "Save As" in BEAUti's "File" menu. Do not close the BEAUti window yet.
 
-* Open BEAST2, load file [`Near_et_al_red.xml`](data/Near_et_al_red.xml) as in the screenshot below, and try running the MCMC analysis.<p align="center"><img src="img/beast1.png" alt="BEAUti" width="500"></p>Most likely, the MCMC analysis is going to crash right at the start with an error message as shown below.<p align="center"><img src="img/beast2.png" alt="BEAUti" width="500"></p>This is a common problem when several fossil constraints are specified: According to the error message, BEAST2 could not find a proper state to initialise. This means that even after several attempts, no starting state of the MCMC chain could be found that had a non-zero probability. Most often, the issue is that the tree that BEAST2 randomly generates to start the chain is in conflict with one or more fossil constraints. The way to fix this issue is to specify a starting tree that is in agreement with the specified fossil constraints. In particular, because all fossil constraints imposed hard minimum ages on the origin of the respective clades, these clades must at least be as old as the minimum age in the starting tree. In case of doubt, it is usually safer to make the starting tree too old rather than too young, the course of the MCMC chain should, at least after the burnin, not be influenced by the starting state anymore anyway. Some helpful advice on how to specify starting trees is provided on the [BEAST2](https://www.beast2.org/fix-starting-tree/) webpage. With trees of hundreds of taxa, generating a suitable starting tree can be a tricky task in itself, but with the small number of 24 species used here, it was easier to write a starting tree by hand.
+* Open BEAST2, load file `Near_et_al_red.xml` as in the screenshot below, and try running the MCMC analysis.<p align="center"><img src="img/beast1.png" alt="BEAUti" width="500"></p>Most likely, the MCMC analysis is going to crash right at the start with an error message as shown below.<p align="center"><img src="img/beast2.png" alt="BEAUti" width="500"></p>This is a common problem when several fossil constraints are specified: According to the error message, BEAST2 could not find a proper state to initialise. This means that even after several attempts, no starting state of the MCMC chain could be found that had a non-zero probability. Most often, the issue is that the tree that BEAST2 randomly generates to start the chain is in conflict with one or more fossil constraints. The way to fix this issue is to specify a starting tree that is in agreement with the specified fossil constraints. In particular, because all fossil constraints imposed hard minimum ages on the origin of the respective clades, these clades must at least be as old as the minimum age in the starting tree. In case of doubt, it is usually safer to make the starting tree too old rather than too young, the course of the MCMC chain should, at least after the burnin, not be influenced by the starting state anymore anyway. Some helpful advice on how to specify starting trees is provided on the [BEAST2](https://www.beast2.org/fix-starting-tree/) webpage. With trees of hundreds of taxa, generating a suitable starting tree can be a tricky task in itself, but with the small number of 24 species used here, it was easier to write a starting tree by hand.
 
 * Open the program FigTree, and then copy and paste the below starting tree string into a new FigTree window.
 
@@ -164,7 +164,7 @@ The 24 species that we will focus on are listed in the table below.
 		
 	Then, set a tick next to "Node Labels" to display node ages. As you'll see, I just arbitrarily specified for most branches a length of 10 million years, and I made sure that particularly the more recent divergence events agree with the respective fossil constraints (e.g. by placing the divergence of *Oreochromis niloticus* and *Heterochromis multidens* at 50 Ma because the origin of the clade "Other African cichlid tribes", represented by *Oreochromis niloticus* is constrained to be at least 45 million years old).
 	
-There are two ways to specify starting trees for BEAST2 analyses; either again using BEAUti or by editing the XML file in a text editor. If you downloaded file [`Near_et_al_red.xml`](data/Near_et_al_red.xml) instead of setting it up completely in BEAUti, you may need to add the starting tree using a text editor (see below after the next four steps).
+There are two ways to specify starting trees for BEAST2 analyses; either again using BEAUti or by editing the XML file in a text editor. If you downloaded file [`Near_et_al_red.xml`](https://raw.githubusercontent.com/mmatschiner/BIO395_2020/main/data/Near_et_al_red.xml) instead of setting it up completely in BEAUti, you may need to add the starting tree using a text editor (see below after the next four steps).
 	
 * To add the starting tree using BEAUti, click on the "View" menu and select "Show Starting tree panel", as shown in the next screenshot.<p align="center"><img src="img/beauti20.png" alt="BEAUti" width="700"></p>The starting tree panel should appear, as in the screenshot below.<p align="center"><img src="img/beauti21.png" alt="BEAUti" width="700"></p>
 	
@@ -176,7 +176,7 @@ There are two ways to specify starting trees for BEAST2 analyses; either again u
 
 If for some reason adding the starting tree in BEAUti should not work, this can alternatively be done in a text editor, as described below (if you did add it in BEAUti, you may skip the next three steps):
 
-* Open file [`Near_et_al_red.xml`](data/Near_et_al_red.xml) in a text editor and find a block on lines 339-344.
+* Open file `Near_et_al_red.xml` in a text editor and find a block on lines 339-344.
 
 		<init id="RandomTree.t:ZIC_2nd" spec="beast.evolution.tree.RandomTree" estimate="false" initial="@Tree.t:enc_1st">
 			<taxa id="ZIC_2nd" spec="FilteredAlignment" data="@Near_et_al_red" filter="7697-8576\3"/>
