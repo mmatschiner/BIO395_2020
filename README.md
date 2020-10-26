@@ -226,11 +226,25 @@ Even though we now already have the most important result of the analysis, an es
 
 * To generate a summary tree from the posterior tree distribution, open the program TreeAnnotator that is part of the BEAST2 package.
 
-XXX [`Near_et_al_red.tre`](https://raw.githubusercontent.com/mmatschiner/BIO395_2020/main/res/Near_et_al_red.tre)
+* Specify "10" as the burn-in percentage (the percentage of the posterior tree distribution that is ignored because the MCMC chain might not have been stationary initially), and change the drop-down menu for "node heights" to "Mean heights". This means that for each node in the summary tree, the age of the node is going to be set according to the mean age of the same node across the posterior tree distribution.
 
-XXX <p align="center"><img src="img/treeannotator1.png" alt="TreeAnnotator" width="700"></p>
+* Choose the file with the posterior tree distribution, `Near_et_al_red.trees`, as the input tree file, and set the name of the output file to `Near_et_al_red.tre` (note the different file ending). The TreeAnnotator window should then look as in the next screenshot: <p align="center"><img src="img/treeannotator1.png" alt="TreeAnnotator" width="500"></p>
 
-XXX <p align="center"><img src="img/figtree2.png" alt="FigTree" width="700"></p>
+* Click "Run" to produce the summary tree.
+
+TreeAnnotator should finish within seconds, and a file named `Near_et_al_red.tre` should then have been written. If this step should failed for some reason, you could instead download the prepared file [`Near_et_al_red.tre`](https://raw.githubusercontent.com/mmatschiner/BIO395_2020/main/res/Near_et_al_red.tre) and use that for the next steps.
+
+* Open the program FigTree, and with that program the summary-tree file `Near_et_al_red.tre`. This should show a visual representation of the phylogeny.
+
+* To improve this visualization, you could change some of the settings in FigTree. First, select "Decreasing Node Order" in the "Tree" menu in the menu bar (or hit Command-D).
+
+* Remove the tick in the checkbox for "Scale Bar" in the panel to the left of the FigTree window, and instead set a tick in the checkbox for "Scale Axis".
+
+* Then click on the triangle next to "Scale Axis", remove the tick next to "Show grid", and add a tick next to "Reverse axis" in the part of the window that opened after clicking the triangle.
+
+* Click the triangle next to "Tip labels" and increase the font size.
+
+* Set a tick next to "Node Bars" and choose "height_95%_HPD" from the drop-down menu next to "Display" to set the length of the bars according to the Bayesian confidence interval for the age of the corresponding node. The FigTree window should then look as shown in the next screenshot.<p align="center"><img src="img/figtree2.png" alt="FigTree" width="700"></p>
 
 <br><hr>
 
